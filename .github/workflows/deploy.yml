@@ -2,7 +2,7 @@ name: Sync from Notion and publish
 
 on:
   schedule:
-    - cron: '13 23 * * *'   # every day 06:13 Bangkok time
+    - cron: '45 22 * * *'   # every day 05:45 Bangkok time (done before 06:00)
   workflow_dispatch:         # "Run workflow" button = sync now
   push:
     branches: [main]
