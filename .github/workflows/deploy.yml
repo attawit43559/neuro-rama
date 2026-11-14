@@ -2,7 +2,7 @@ name: Sync from Notion and publish
 
 on:
   schedule:
-    - cron: '45 22 * * *'   # every day 05:45 Bangkok time (done before 06:00)
+    - cron: '13 23 * * *'   # every day 06:13 Bangkok time
   workflow_dispatch:         # "Run workflow" button = sync now
   push:
     branches: [main]
@@ -40,7 +40,7 @@ jobs:
         run: |
           git config user.name "notion-sync"
           git config user.email "actions@users.noreply.github.com"
-          git add notion
+          git add notion site.json img
           git diff --cached --quiet || (git commit -m "Sync from Notion" && git push)
 
       - uses: actions/configure-pages@v5
