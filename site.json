@@ -38,20 +38,15 @@
    "group": "คณาจารย์",
    "people": [
     {
-     "name": "ผศ.นพ.สุพจน์ ตุลยาเดชานนท์",
-     "area": "General neurology",
-     "img": "img/n/f-4182d8a4e682817eb15ec2a0643dca1e.jpg"
+     "name": "ผศ.ดร.นพ.จรุงไทย เดชเทวพร",
+     "area": "Neuromuscular",
+     "img": "img/n/f-4182d8a4e6828106b5a0d5ef4cec3674.jpg",
+     "role": "หัวหน้าหน่วย"
     },
     {
      "name": "ผศ.นพ.เจษฎา เขียนดวงจันทร์",
      "area": "Vascular neurology",
      "img": "img/n/f-4182d8a4e682819088c2fa2ab96d90e2.jpg"
-    },
-    {
-     "name": "ผศ.ดร.นพ.จรุงไทย เดชเทวพร",
-     "area": "Neuromuscular",
-     "img": "img/n/f-4182d8a4e6828106b5a0d5ef4cec3674.jpg",
-     "role": "หัวหน้าหน่วย"
     },
     {
      "name": "รศ.พญ.ปนิษฐา จินดาหรา",
@@ -98,6 +93,11 @@
   {
    "group": "อาจารย์พิเศษ",
    "people": [
+    {
+     "name": "ผศ.นพ.สุพจน์ ตุลยาเดชานนท์",
+     "area": "อาจารย์พิเศษ",
+     "img": "img/n/f-4182d8a4e682817eb15ec2a0643dca1e.jpg"
+    },
     {
      "name": "ศ.พญ.รวิพรรณ วิทูรพณิชย์",
      "area": "อาจารย์พิเศษ",
