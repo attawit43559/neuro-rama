@@ -110,6 +110,26 @@ async function saveImage(row, names, tag) {
   return 'img/n/' + name;
 }
 
+// ---------- unit info table (code -> text) ----------
+let unitCache;
+async function unitValues() {
+  if (unitCache) return unitCache;
+  const out = {};
+  for (const r of await queryAll(DS.unit)) {
+    const key = select(r, ['รหัส']); const val = text(r, ['ค่า', 'ข้อความ']);
+    if (key) out[key] = val;
+  }
+  return (unitCache = out);
+}
+// "Stroke Unit 2700, 2715 · EMO 1669" (also one per line) -> "Stroke Unit <b>2700, 2715</b> · EMO <b>1669</b>"
+function boldNumbers(v) {
+  if (/<b>/.test(v)) return v;
+  return v.split(/\s*[·•|\n]\s*/).map(x => x.trim()).filter(Boolean).map(part => {
+    const m = part.match(/^(.*?\D)\s+(\d[\d,\s\-]*)$/);
+    return m ? `${m[1].trim()} <b>${m[2].trim()}</b>` : part;
+  }).join(' · ');
+}
+
 // ---------- topics + hub ----------
 async function syncTopics(prevManifest) {
   const rows = await queryAll(DS.topics);
@@ -132,19 +152,24 @@ async function syncTopics(prevManifest) {
   }
   pages.sort((a, b) => a.order - b.order);
 
+  // Hub texts: the "ข้อมูลหน่วย" table is the source (rows coded subtitle / urgent / status).
+  // Older layout kept them as lines on the hub page — still read as a fallback.
   const prevHub = prevManifest?.hub || {};
   let hub = { title: 'Neurology Med Rama', subtitle: prevHub.subtitle || '', status: prevHub.status || '', urgent: prevHub.urgent || '' };
-  try {
-    const lines = (await markdown(HUB)).split('\n');
-    const head = lines.slice(0, 3).join('\n');
-    const subtitle = (lines[0].match(/<span color="gray">([\s\S]*?)<\/span>/) || [])[1];
-    const status = (head.match(/<span color="orange">([\s\S]*?)<\/span>/) || [])[1];
-    const urgentLine = lines.find(l => /^\s*<b>\s*เบอร์(ด่วน|โทร)/.test(l));
-    if (subtitle) hub.subtitle = subtitle;
-    hub.status = status ? status.replace(/^●\s*/, '').trim() : '';
-    if (urgentLine) hub.urgent = urgentLine.trim().replace(/^<b>[^<]*<\/b>/, '').trim();
-    else console.warn('hub: line starting with "เบอร์ด่วน" not found — keeping previous numbers');
-  } catch (e) { console.warn('hub not read, keeping previous values: ' + e.message); }
+  let unit = null;
+  try { unit = await unitValues(); } catch (e) { console.warn('ข้อมูลหน่วย not read: ' + e.message); }
+  if (unit?.subtitle) hub.subtitle = unit.subtitle;
+  if (unit?.urgent) hub.urgent = boldNumbers(unit.urgent);
+  if (unit) hub.status = unit.status || '';
+  if (!unit?.subtitle || !unit?.urgent) {
+    try {
+      const lines = (await markdown(HUB)).split('\n');
+      const subtitle = (lines[0].match(/<span color="gray">([\s\S]*?)<\/span>/) || [])[1];
+      const urgentLine = lines.find(l => /^\s*<b>\s*เบอร์(ด่วน|โทร)/.test(l));
+      if (!unit?.subtitle && subtitle) hub.subtitle = subtitle;
+      if (!unit?.urgent && urgentLine) hub.urgent = urgentLine.trim().replace(/^<b>[^<]*<\/b>/, '').trim();
+    } catch (e) { console.warn('hub not read, keeping previous values: ' + e.message); }
+  }
 
   await writeFile(join(OUT, 'manifest.json'), JSON.stringify({ synced: bangkokNow(), hub, pages }, null, 1) + '\n');
   const keep = new Set(pages.map(p => p.id + '.md'));
@@ -163,14 +188,7 @@ async function syncSite() {
   try { prev = JSON.parse(await readFile(join(ROOT, 'site.json'), 'utf8')); } catch {}
   const site = { ...prev };
 
-  const unit = await section('ข้อมูลหน่วย', async () => {
-    const out = {};
-    for (const r of await queryAll(DS.unit)) {
-      const key = select(r, ['รหัส']); const val = text(r, ['ค่า']);
-      if (key && val) out[key] = val;
-    }
-    return out;
-  }, {});
+  const unit = await section('ข้อมูลหน่วย', unitValues, {});
   for (const k of ['unit', 'faculty_name', 'address', 'drive']) if (unit[k]) site[k] = unit[k];
 
   site.heads = await section('ทำเนียบหัวหน้าหน่วย', async () =>
