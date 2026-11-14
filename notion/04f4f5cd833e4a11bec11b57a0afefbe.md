@@ -56,7 +56,7 @@
 - แขนขาชาครึ่งซีก (hemisensory loss)
 - พูดไม่ชัด ลิ้นแข็ง (dysarthria)
 - พูดไม่ออก ฟังไม่เข้าใจ (aphasia)
-- ตามองเห็นภาพไม่ชัด (hemianopia, monocular blindness \^)
+- ตามองเห็นภาพไม่ชัด (hemianopia, monocular blindness \*)
 - มองเห็นภาพซ้อน (diplopia)
 - เดินเซ ทรงตัวไม่อยู่ (ataxia)
 - ซึมลง หมดสติ (stuporous, comatose)
@@ -130,7 +130,7 @@ IPD
 2. <b>Emergency CT brain (non-contrast)</b>
    - เพิ่ม CTA if ischemic stroke onset ≤ 24 h
    - เพิ่ม CTP if LVO onset 6–24 h
-   - หรือ Emergency MRI brain \^\^\^ → แจ้ง Fellow neuroimaging (ตามตาราง consult)
+   - หรือ Emergency MRI brain \*\* → แจ้ง Fellow neuroimaging (ตามตาราง consult)
 3. <b>Lab</b> — ส่งทันทีและระบุ stroke fast track
    - CBC, coagulogram (PT, aPTT, INR, TT)
    - E’lyte, BUN/Cr, blood glucose, POC-Glu
@@ -207,7 +207,7 @@ CT tech SDMC 3384-5
 </tr>
 <tr>
 <td>
-<b>MRI (ฉุกเฉิน)</b> \^\^\^
+<b>MRI (ฉุกเฉิน)</b> \*\*
 </td>
 <td>
 ตามข้อบ่งชี้
@@ -220,10 +220,10 @@ Fellow neuroimaging ตามตาราง consult
 
 <b>หมายเหตุ</b>
 
-- <b>\^ CRAO</b> — แจ้ง Ophthalmology resident
+- <b>\* CRAO</b> — แจ้ง Ophthalmology resident
   - onset ≤ 72 h สำหรับ IAT
   - onset ≤ 4.5 h สำหรับ IVT (กรณีมีปัญหาค่าใช้จ่ายสำหรับ IAT)
-- <b>\^\^\^ MRI brain ฉุกเฉิน</b>
+- <b>\*\* MRI brain ฉุกเฉิน</b>
   - Wake-up stroke
   - BA occlusion
   - เพื่อวินิจฉัย stroke / stroke mimic
