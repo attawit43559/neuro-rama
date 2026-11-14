@@ -1,0 +1,179 @@
+{
+ "unit": "หน่วยประสาทวิทยา ภาควิชาอายุรศาสตร์",
+ "faculty_name": "คณะแพทยศาสตร์โรงพยาบาลรามาธิบดี มหาวิทยาลัยมหิดล",
+ "address": "270 ถนนพระรามที่ 6 แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ 10400",
+ "drive": "https://drive.google.com/drive/folders/101ISDHktpwS3CEsNW6cAZGZZYsI_ibg4?usp=sharing",
+ "heads": [
+  {
+   "years": "2512 – 2523",
+   "name": "ศ.เกียรติคุณ นพ.อรรถสิทธิ์ เวชชาชีวะ"
+  },
+  {
+   "years": "2523 – 2538",
+   "name": "ศ.เกียรติคุณ นพ.ประเสริฐ บุญเกิด"
+  },
+  {
+   "years": "2538 – 2541",
+   "name": "ศ.นพ.ปรีดา พัวประดิษฐ์"
+  },
+  {
+   "years": "2541 – 2549",
+   "name": "ศ.พญ.รวิพรรณ วิทูรพณิชย์"
+  },
+  {
+   "years": "2549 – 2560",
+   "name": "ผศ.นพ.สุพจน์ ตุลยาเดชานนท์"
+  },
+  {
+   "years": "2560 – 2564",
+   "name": "ศ.ดร.นพ.ธีรธร พูลเกษ"
+  },
+  {
+   "years": "2564 – ปัจจุบัน",
+   "name": "ผศ.ดร.นพ.จรุงไทย เดชเทวพร"
+  }
+ ],
+ "faculty": [
+  {
+   "group": "คณาจารย์",
+   "people": [
+    {
+     "name": "ผศ.นพ.สุพจน์ ตุลยาเดชานนท์",
+     "area": "General neurology",
+     "img": "img/f0.jpg"
+    },
+    {
+     "name": "ผศ.นพ.เจษฎา เขียนดวงจันทร์",
+     "area": "Vascular neurology",
+     "img": "img/f1.jpg"
+    },
+    {
+     "name": "ผศ.ดร.นพ.จรุงไทย เดชเทวพร",
+     "area": "Neuromuscular",
+     "img": "img/f2.jpg",
+     "role": "หัวหน้าหน่วย"
+    },
+    {
+     "name": "รศ.พญ.ปนิษฐา จินดาหรา",
+     "area": "Neuro-ophthalmology",
+     "img": "img/f3.jpg"
+    },
+    {
+     "name": "ผศ.นพ.อภิสิทธิ์ บุญเกิด",
+     "area": "Epilepsy",
+     "img": "img/f4.jpg"
+    },
+    {
+     "name": "รศ.พญ.สุรีรัตน์ สุวัชรังกูร",
+     "area": "Vascular neurology",
+     "img": "img/f5.jpg"
+    },
+    {
+     "name": "ผศ.พญ.พิรดา วิทูรพณิชย์",
+     "area": "Behavioral neurology",
+     "img": "img/f6.jpg"
+    },
+    {
+     "name": "รศ.นพ.พิเชฐ เติมสารทรัพย์",
+     "area": "Movement disorders",
+     "img": "img/f7.jpg"
+    },
+    {
+     "name": "อ.พญ.ธนนันท์ ธรรมมงคลชัย",
+     "area": "Neuromuscular",
+     "img": "img/f8.jpg"
+    },
+    {
+     "name": "อ.นพ.อรรถวิทย์ เจริญศรี",
+     "area": "General neurology",
+     "img": "img/f9.jpg"
+    },
+    {
+     "name": "อ.นพ.ณัฐนนท์ พรชัยสกุลดี",
+     "area": "General neurology",
+     "img": "img/f10.jpg"
+    }
+   ]
+  },
+  {
+   "group": "อาจารย์พิเศษ",
+   "people": [
+    {
+     "name": "ศ.พญ.รวิพรรณ วิทูรพณิชย์",
+     "area": "อาจารย์พิเศษ",
+     "img": "img/f11.jpg"
+    },
+    {
+     "name": "ศ.นพ.ประเสริฐ บุญเกิด",
+     "area": "อาจารย์พิเศษ",
+     "img": "img/f12.jpg"
+    }
+   ]
+  },
+  {
+   "group": "รองคณบดี",
+   "people": [
+    {
+     "name": "อ.นพ.ไพโรจน์ บุญคงชื่น",
+     "area": "รองคณบดี",
+     "img": "img/f13.jpg"
+    }
+   ]
+  },
+  {
+   "group": "สถาบันการแพทย์จักรีนฤบดินทร์",
+   "people": [
+    {
+     "name": "อ.พญ.ธนรรญา วงศ์สีนิล",
+     "area": "สถาบันการแพทย์จักรีนฤบดินทร์",
+     "img": "img/f14.jpg"
+    },
+    {
+     "name": "อ.พญ.วันนิษา วงษ์พิพัฒน์พงษ์",
+     "area": "สถาบันการแพทย์จักรีนฤบดินทร์",
+     "img": "img/f15.jpg"
+    }
+   ]
+  }
+ ],
+ "staff": [
+  {
+   "name": "นางโสพิน อามาตรทัศน์",
+   "role": "เลขานุการสาขาวิชา",
+   "phone": "02-2011386",
+   "email": "sopin.ama@mahidol.ac.th",
+   "note": "ตารางเวร ค่าตอบแทนเวร การลา และสิทธิ์เข้าถึง Google Drive"
+  }
+ ],
+ "gallery": [
+  "img/a2.jpg",
+  "img/a5.jpg",
+  "img/a3.jpg",
+  "img/a4.jpg",
+  "img/a6.jpg",
+  "img/a1.jpg",
+  "img/a0.jpg"
+ ],
+ "systems": [
+  {
+   "title": "ระบบประเมินกิจกรรมวิชาการ",
+   "desc": "Activity assessment",
+   "url": ""
+  },
+  {
+   "title": "ระบบประเมิน EPA",
+   "desc": "Entrustable professional activities",
+   "url": ""
+  },
+  {
+   "title": "ระบบประเมินการปฏิบัติงานรายเดือน",
+   "desc": "Monthly performance evaluation",
+   "url": ""
+  },
+  {
+   "title": "ระบบบันทึกข้อมูลผู้ป่วย",
+   "desc": "Case log",
+   "url": ""
+  }
+ ]
+}

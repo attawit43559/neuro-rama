@@ -1,0 +1,60 @@
+name: Sync from Notion and publish
+
+on:
+  schedule:
+    - cron: '13 23 * * *'   # every day 06:13 Bangkok time
+  workflow_dispatch:         # "Run workflow" button = sync now
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull content from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::warning::NOTION_TOKEN secret is not set — publishing the content already in the repository"
+          else
+            node scripts/sync-notion.mjs
+          fi
+
+      - name: Save synced content
+        run: |
+          git config user.name "notion-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add notion
+          git diff --cached --quiet || (git commit -m "Sync from Notion" && git push)
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
