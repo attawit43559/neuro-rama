@@ -220,8 +220,10 @@ async function syncSite() {
 
   site.systems = await section('ระบบสารสนเทศ', async () =>
     (await queryAll(DS.systems)).filter(r => check(r, ['แสดงบนเว็บ']) && title(r))
-      .map(r => ({ _o: num(r, ['ลำดับ']), title: title(r), desc: text(r, ['คำอธิบาย']), url: anyText(r, ['ลิงก์']) }))
-      .sort(byOrder).map(({ _o, ...s }) => s), prev.systems);
+      .map(r => ({ _o: num(r, ['ลำดับ']), title: title(r), desc: text(r, ['คำอธิบาย']), url: anyText(r, ['ลิงก์']),
+        // the row's page icon, when it is an image link, becomes the system's logo on the website
+        icon: r.icon?.type === 'external' && /^https:\/\//.test(r.icon.external?.url || '') ? r.icon.external.url : '' }))
+      .sort(byOrder).map(({ _o, icon, ...s }) => icon ? { ...s, icon } : s), prev.systems);
 
   site.gallery = await section('แกลเลอรีภาพกิจกรรม', async () => {
     const rows = (await queryAll(DS.gallery)).filter(r => check(r, ['แสดงบนเว็บ']));

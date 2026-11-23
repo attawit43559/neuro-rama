@@ -575,6 +575,7 @@ section.s.alt .kicker{background:var(--paper)}
 .syslist li{border:0;background:var(--paper2);border-radius:18px;padding:16px 18px;transition:transform .3s var(--ease)}
 .syslist li:hover{transform:translateX(6px)}
 .syslist .ico{background:var(--paper);box-shadow:none}
+.syslist .sysimg{width:40px;height:40px;border-radius:10px;object-fit:cover;flex:none}
 .note,.alert{border-radius:16px;border-left:0}
 .hsearch{backdrop-filter:blur(10px)}
 .btn .ico,.btn svg{transition:transform .3s var(--ease)}
@@ -1046,7 +1047,7 @@ function renderHome(){
   <section class="s" id="apps"><div class="wrap">
     <div class="s-head rv"><div><span class="kicker">ระบบสารสนเทศ</span><h2>ระบบสำหรับแพทย์ประจำบ้าน</h2></div><div class="right"><p class="lead">ระบบประเมินผล ระบบบันทึกข้อมูล และคลังเอกสารกิจกรรมวิชาการ</p></div></div>
     <div class="res">
-      <div class="rv"><ul class="syslist">${(s.systems || []).map(x => `<li>${ico('check',18)}<span><b>${esc(x.title)}</b><small>${esc(x.desc||'')}</small></span>${x.url ? `<a class="more" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">เข้าสู่ระบบ ${svg('ext',14)}</a>` : '<span class="tag-soon">อยู่ระหว่างพัฒนา</span>'}</li>`).join('')}</ul></div>
+      <div class="rv"><ul class="syslist">${(s.systems || []).map(x => `<li>${x.icon ? `<img class="sysimg" src="${esc(safeUrl(x.icon))}" alt="" width="40" height="40" loading="lazy">` : ico('check',18)}<span><b>${esc(x.title)}</b><small>${esc(x.desc||'')}</small></span>${x.url ? `<a class="more" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">เข้าสู่ระบบ ${svg('ext',14)}</a>` : '<span class="tag-soon">อยู่ระหว่างพัฒนา</span>'}</li>`).join('')}</ul></div>
       <div class="drive rv"><span class="kicker">คลังเอกสารกิจกรรมวิชาการ</span><h3>เอกสารนำเสนอ Journal club, Topic discussion และ Case conference</h3>
         <p>จัดเก็บในรูปแบบ pptx และ pdf บน Google Drive ของสาขาวิชา</p>
         <div class="row">${s.drive ? `<a class="btn primary" href="${esc(safeUrl(s.drive))}" target="_blank" rel="noopener">${svg('folder',18)} เข้าสู่คลังเอกสาร</a>` : ''}${bs.files ? `<a class="lnk" href="#files">ขั้นตอนการส่งไฟล์</a>` : ''}</div></div>
