@@ -156,6 +156,12 @@
  ],
  "systems": [
   {
+   "title": "NeuroRA evaluation",
+   "desc": "ประเมินแพทย์ประจำบ้าน สาขาประสาทวิทยา",
+   "url": "https://neuro-rama.github.io/ra/",
+   "icon": "https://neuro-rama.github.io/ra/apple-touch-icon.png"
+  },
+  {
    "title": "ระบบประเมินกิจกรรมวิชาการ",
    "desc": "Activity assessment",
    "url": ""
